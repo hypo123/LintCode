@@ -1,10 +1,12 @@
-package com.hypo.dp;
+package com.hypo.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.hypo.dp.LIS_76;
 
 public class LIS_76Test
 {
