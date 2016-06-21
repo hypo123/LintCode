@@ -25,11 +25,11 @@ public class LIS_76Test
 	{
 		int[] nums1 = {5,4,1,2,3};
 		int expt1 = 3;
-		org.junit.Assert.assertEquals("wrong1", expt1, t76.longestIncreasingSubsequence(nums1));
+		org.junit.Assert.assertEquals("wrong1", expt1, t76.longestIncreasingSubsequence3(nums1));
 
 		int[] nums2 = {4,2,4,5,3,7};
 		int expt2 = 4;
-		org.junit.Assert.assertEquals("wrong2", expt2, t76.longestIncreasingSubsequence(nums2));
+		org.junit.Assert.assertEquals("wrong2", expt2, t76.longestIncreasingSubsequence3(nums2));
 	}
 
 }

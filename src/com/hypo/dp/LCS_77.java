@@ -34,6 +34,7 @@ public class LCS_77
     			{
     				f[i][j] = f[i][j-1];
     			}
+    			
     			if(f[i][j] > maxlen) maxlen = f[i][j];
     		}
     	}
