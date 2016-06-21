@@ -2,6 +2,7 @@ package com.hypo.Tree;
 
 /**
  * 线段树
+ * 未完成
  */
 
 class SegmentTreeNode

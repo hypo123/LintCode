@@ -1,9 +1,8 @@
-package com.hypo.String;
+package com.hypo.dp;
 
 /**
  * 最长公共子序列
  * 
- * 矩阵图
  * 动态规划
  */
 public class LCS_77

@@ -42,7 +42,6 @@ public class LCP_78
     }
 	public static void main(String[] args)
 	{
-		//, , 
 		
 		String[] strs = {"" , "ABCEFG" , "ABCEFA"};
 		
