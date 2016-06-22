@@ -60,6 +60,7 @@ public class RemoveElement_172
 		return count;
 	}
     
+//	test
     public static void main(String[] args)
 	{
 		int[] A = {0,4,4,0,0,2,4,4};
