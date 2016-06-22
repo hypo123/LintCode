@@ -2,7 +2,7 @@ package com.hypo.dp;
 
 /**
  * 最长公共字串(最长公共子序列的特殊情况)
- * 动态规划
+ * 动态规划  
  */
 public class LCS_79
 {
