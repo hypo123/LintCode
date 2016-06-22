@@ -37,7 +37,7 @@ import java.util.Arrays;
  */
 public class LIS_76
 {
-//	---------分析一实现--------
+//	---------分析一实现------------
     public int longestIncreasingSubsequence(int[] nums) 
     {
     	int[] dp = new int[nums.length];//dp[i]的值是数组从0到i的最长增长子序列长度.
