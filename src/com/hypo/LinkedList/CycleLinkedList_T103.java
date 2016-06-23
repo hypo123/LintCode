@@ -2,20 +2,11 @@ package com.hypo.LinkedList;
 
 import java.util.HashMap;
 
+import com.hypo.utils.ListNode;
+
 /**
  *	探测链表是否有环，如果有环输出该环的起始结点. 
  */
-class ListNode 
-{
-	int val;
-	ListNode next;
-
-	ListNode(int val)
-	{
-		this.val = val;
-		this.next = null;
-	}
- }
 
 public class CycleLinkedList_T103
 {
