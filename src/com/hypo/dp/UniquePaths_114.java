@@ -1,5 +1,11 @@
 package com.hypo.dp;
 
+/**
+ *	不同的路径 [easy] 
+ *	分析动态规划
+ *	f[i][j] = f[i-1][j] + f[i][j-1] 
+ *
+ */
 public class UniquePaths_114
 {
     public int uniquePaths(int m, int n) 
