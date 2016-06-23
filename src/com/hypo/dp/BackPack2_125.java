@@ -1,7 +1,5 @@
 package com.hypo.dp;
 
-import java.util.Arrays;
-
 /**
  * 背包问题II [middle]
  * 0-1背包
@@ -27,10 +25,23 @@ import java.util.Arrays;
  *   		F[i,v] <—— max{F[i-1,v] , F[i-1,v-C[i]] + W[i]}
  *   
  *   时间复杂度O(VN),空间复杂度O(VN)
+ *   
+ *   
+ *   总结：
+ *   事实上，使用一维数组解 01 背包的程序在后面会被多次用到，所以这里抽象出一
+ *	个处理一件 01 背包中的物品过程，以后的代码中直接调用不加说明。
+ *	def ZeroOnePack(F, C, W )
+ *		for v ← V to C
+ *			F [v] ← max(F [v], F [v − C] + W )
+ *	有了这个过程以后， 01 背包问题的伪代码就可以这样写：
+ *	F [0..V ] ←0
+ *	for i ← 1 to N
+ *		ZeroOnePack(F, Ci, Wi)
  *
  */
 public class BackPack2_125
 {
+//	----------时间复杂度O(VN),空间复杂度O(VN)-----------
 	//m背包大小,A体积,V价值
     public int backPackII(int m, int[] A, int V[]) 
     {
@@ -38,8 +49,6 @@ public class BackPack2_125
     	
     	//f[i][m]表示前i件物品恰放入一个重量为m的背包可以获得的最大价值
     	int[][] f = new int[len+1][m+1];
-    	
-//    	Arrays.fill(f[0], 0);
     	
     	for(int i = 1 ; i <= len ; ++i)//前i件物品 第i件物品对应的体积和价值为A[i-1]和V[i-1]
     	{
@@ -61,6 +70,36 @@ public class BackPack2_125
     	
     	return f[len][m];
     }
+//    ---------------优化空间复杂度O(N),时间复杂度仍是O(VN)--------
+//    伪代码:
+//    F [0..V ] ←0
+//    for i ← 1 to N
+//    for v ← V to Ci
+//    F [v] ← max{F [v], F [v − Ci] + Wi}    
+    
+    public int backPackII2(int m, int[] A, int V[]) 
+    {
+    	int N = A.length;
+    	
+    	int[] f = new int[m+1];
+    	
+    	for(int i = 1 ; i <= N ; ++i)
+    	{
+    		for(int v = m ; v >= A[i-1] ; --v)
+    		{
+    			/**
+    			 * 其中的 F [v] ← max{F [v], F [v − Ci] + Wi} 一句，恰就对应于我们原来的转移方程，因
+				 *	为现在的 F [v − Ci] 就相当于原来的 F [i − 1, v − Ci]。如果将 v 的循环顺序从上面的逆
+				 *	序改成顺序的话，那么则成了 F [i, v] 由 F [i, v − Ci] 推导得到，与本题意不符
+    			 */
+    			f[v] = Math.max(f[v], f[v-A[i-1]]+V[i-1]);
+    		}
+    	}
+    	
+    	return f[m];
+    }
+    
+//    --------------------------------------------------------------------
     
     public static void main(String[] args)
 	{
