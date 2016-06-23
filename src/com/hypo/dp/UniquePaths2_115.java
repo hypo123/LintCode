@@ -25,18 +25,18 @@ public class UniquePaths2_115
     				continue;
     			}
     			
-    			if(i == 0 && j == 0)
+    			if(i == 0 && j == 0)//grid[0][0]
     			{
     				continue;
     			}
     			
-    			if(i == 0)
+    			if(i == 0)//第一行
     			{
     				f[i][j] = f[i][j-1];
     				continue;
     			}
     			
-    			if(j == 0)
+    			if(j == 0)//第一列
     			{
     				f[i][j] = f[i-1][j];
     				continue;
