@@ -29,13 +29,13 @@ package com.hypo.dp;
  *   
  *   总结：
  *   事实上，使用一维数组解 01 背包的程序在后面会被多次用到，所以这里抽象出一
- *	个处理一件 01 背包中的物品过程，以后的代码中直接调用不加说明。
- *	def ZeroOnePack(F, C, W )
+ *	  个处理一件 01 背包中的物品过程;
+ *	 def ZeroOnePack(F, C, W )
  *		for v ← V to C
  *			F [v] ← max(F [v], F [v − C] + W )
- *	有了这个过程以后， 01 背包问题的伪代码就可以这样写：
- *	F [0..V ] ←0
- *	for i ← 1 to N
+ *	   有了这个过程以后， 01 背包问题的伪代码就可以这样写：
+ *	 F [0..V ] ←0
+ *	 for i ← 1 to N
  *		ZeroOnePack(F, Ci, Wi)
  *
  */
@@ -74,8 +74,8 @@ public class BackPack2_125
 //    伪代码:
 //    F [0..V ] ←0
 //    for i ← 1 to N
-//    for v ← V to Ci
-//    F [v] ← max{F [v], F [v − Ci] + Wi}    
+//    	for v ← V to Ci
+//    		F [v] ← max{F [v], F [v − Ci] + Wi}    
     
     public int backPackII2(int m, int[] A, int V[]) 
     {
