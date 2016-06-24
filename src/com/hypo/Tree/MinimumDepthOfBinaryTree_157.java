@@ -10,6 +10,7 @@ import com.hypo.utils.TreeNode;
  */
 public class MinimumDepthOfBinaryTree_157
 {
+//	-----------------------递归版一-----------------------
     public int minDepth(TreeNode root)
     {
     	if(root == null) return 0;
@@ -23,15 +24,15 @@ public class MinimumDepthOfBinaryTree_157
     	{
     		return mindepth;
     	}
-    	else if(node.left == null)
+    	else if(node.left == null)//右子不为空
     	{
     		return dfs(node.right , mindepth + 1);
     	}
-    	else if(node.right == null)
+    	else if(node.right == null)//左子不为空
     	{
     		return dfs(node.left , mindepth + 1);
     	}
-    	else
+    	else//左右都不为空
     	{
     		return Math.min(dfs(node.left , mindepth + 1), dfs(node.right , mindepth + 1));
     	}
