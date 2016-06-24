@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.hypo.utils.TreeNode;
 
+/**
+ *	验证二叉查找树 [middle] 
+ *
+ */
 public class ValidateBST_95
 {	
 
