@@ -1,6 +1,6 @@
 package com.hypo.utils;
 
-//单链表结点
+// 单链表结点
 public class ListNode
 {
     public int val;
