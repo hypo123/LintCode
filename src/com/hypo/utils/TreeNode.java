@@ -1,6 +1,6 @@
 package com.hypo.utils;
 
-//二叉树的结点.
+// 二叉树的结点.
 public class TreeNode 
 {
    public int val;
