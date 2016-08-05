@@ -15,12 +15,13 @@ import com.hypo.utils.DirectedGraphNode;
  *  方法一:使用深度优先搜索来对有向无环图进行拓扑排序.
  *  方法二:Kahn算法
  *  
+ *  手动演算步骤:
  *  1.从有向图中选取一个没有前驱(即入度为0)的顶点，并输出之; 
  *	2.从有向图中删去此顶点以及所有以它为尾的弧;
  *  
  */
 
-/*有向图结点类
+/**有向图结点类
 public class DirectedGraphNode
 {
 	public int label;//结点值
