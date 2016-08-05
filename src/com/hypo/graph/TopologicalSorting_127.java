@@ -130,7 +130,7 @@ public class TopologicalSorting_127
     			}
     		}
     		
-    		//最先加入的是最深的结点
+    		//因为是递归处理,最先加入的是最深的结点
     		path.add(node);
     	}
     }
