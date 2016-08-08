@@ -3,7 +3,7 @@ package com.hypo.Tree;
 import com.hypo.utils.TreeNode;
 
 /**
- *	注释参见util包中BST类
+ *	注释参见util包中BST.java
  */
 public class BSTInsertNode_85
 {
