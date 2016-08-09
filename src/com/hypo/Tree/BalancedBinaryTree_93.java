@@ -15,6 +15,7 @@ public class BalancedBinaryTree_93
     
     private int dfs(TreeNode node)
     {
+    	//node为空树,返回高度0
     	if(node == null) return 0;
     	
     	//左子树高度
@@ -35,7 +36,8 @@ public class BalancedBinaryTree_93
     	
     	//左右子树高度差
     	int diff = leftHeight - rightHeight;
-    	
+    
+    	//左右子树高度差大于1
     	if(diff < - 1 || diff > 1)
     	{
     		return -1;
