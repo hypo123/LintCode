@@ -1,7 +1,5 @@
 package com.hypo.dfs;
 
-import java.util.ArrayList;
-
 /**
  *	N皇后
  *	参见NQueens_33.java 
