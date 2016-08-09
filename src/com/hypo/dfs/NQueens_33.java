@@ -21,7 +21,7 @@ public class NQueens_33
     	
     	int[] C = new int[n];//第i行皇后所占的列
     	int[] column = new int[n];//占据了哪些列
-    	int[] main_diag = new int[n<<1];//占据了哪些主对角线
+    	int[] main_diag = new int[n<<1];//占据了哪些主对角线,n行n列有2*n-1条正对角线,这儿数组开的大小为2*n
     	int[] anti_diag = new int[n<<1];//占据了哪些副对角线
     			
     	//从第0行开始处理
