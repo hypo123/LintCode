@@ -3,7 +3,8 @@ package com.hypo.unionfind;
 import java.util.HashMap;
 
 /**
- *	lintcode124 最长连续数列
+ *	lintcode124 最长连续数列 [middle]
+ *	给定一个未排序的整数数组，找出最长连续序列的长度
  */
 public class LCS_124
 {
