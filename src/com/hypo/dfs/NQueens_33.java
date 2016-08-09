@@ -1,7 +1,6 @@
 package com.hypo.dfs;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *	N皇后问题	[middle]
