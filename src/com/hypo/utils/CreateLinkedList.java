@@ -20,7 +20,7 @@ public class CreateLinkedList
 		return dummy.next;
 	}
 	
-	private void print(ListNode node)
+	public void print(ListNode node)
 	{
 		while(node != null)
 		{
@@ -39,15 +39,18 @@ public class CreateLinkedList
 		int[] nums2 = {1};
 		int[] nums3 = {1,2};
 		int[] nums4 = {0,1,3,4,4,5,6};
+		int[] nums5 = {1,2,3,4,5};
 		
 		ListNode n1 = cll.create(nums1);
 		ListNode n2 = cll.create(nums2);
 		ListNode n3 = cll.create(nums3);
 		ListNode n4 = cll.create(nums4);
+		ListNode n5 = cll.create(nums5);
 		
 		cll.print(n1);
 		cll.print(n2);
 		cll.print(n3);
 		cll.print(n4);
+		cll.print(n5);
 	}
 }
