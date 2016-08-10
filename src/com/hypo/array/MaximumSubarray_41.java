@@ -10,7 +10,7 @@ public class MaximumSubarray_41
     {
     	int sum = Integer.MIN_VALUE;//全局最大子数组和
     	
-    	int current_sum = 0;//当前子数组和
+    	int current_sum = 0;// 当前子数组和
     	
     	for(int n : nums)
     	{
