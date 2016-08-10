@@ -20,11 +20,12 @@ public class Sqrtx_141
     	
     	//max的平方应该要小于Integer.MAX_VALUE,不然会溢出
     	//Integer.MAX_VALUE = 2^31-1 = 2147483648 - 1
-//    	int max = Integer.MAX_VALUE >> 1 - 1;
     	
-//    	int max = (1 << 16) - 1;
     	int max = 46340;
     	
+    	
+    	//如果x的值比max的平方还大,直接返回max
+    	//因为 max+1 的平方会超界
     	if(max * max <= x) return max;
     	
     	int low = 0;
