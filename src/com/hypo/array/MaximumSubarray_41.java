@@ -19,7 +19,10 @@ public class MaximumSubarray_41
     		{
     			sum = Math.max(sum, current_sum);
     			
+    			//重置current_sum
     			current_sum = n;
+
+    			sum = Math.max(sum, current_sum);//BUG
     		}
     		else
     		{
@@ -29,6 +32,6 @@ public class MaximumSubarray_41
     		}
     	}
     	
-    	return sum;
+    	return Math.max(sum, current_sum);//BUG
     }
 }
