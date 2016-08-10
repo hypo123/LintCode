@@ -37,5 +37,29 @@ public class MaximumSubarray_41Test
 		int expt = -1;
 		org.junit.Assert.assertEquals(expt, t41.maxSubArray(nums));
 	}
+	
+	@Test
+	public void testMaxSubArray3()
+	{
+		int[] nums = { -2,1 };
+		int expt = 1;
+		org.junit.Assert.assertEquals(expt, t41.maxSubArray(nums));
+	}
+	
+	@Test
+	public void testMaxSubArray4()
+	{
+		int[] nums = { -1,0,-2 };
+		int expt = 0;
+		org.junit.Assert.assertEquals(expt, t41.maxSubArray(nums));
+	}
+	
+	@Test
+	public void testMaxSubArray5()
+	{
+		int[] nums = { 8,-19,5,-4,20 };
+		int expt = 21;
+		org.junit.Assert.assertEquals(expt, t41.maxSubArray(nums));
+	}
 
 }
