@@ -69,7 +69,7 @@ public class BinaryTreePaths_480
     	//2. 34->68->-23->  这儿需要删除-23->
     	if(!Character.isDigit(path.charAt(path.length()-1)))
     	{
-    		//情况二:需先删除末尾的'>'字符
+    		//情况二需先删除末尾的'>'字符
     		path.deleteCharAt(path.length() - 1);
     	}
     	
