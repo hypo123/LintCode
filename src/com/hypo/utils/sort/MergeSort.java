@@ -14,7 +14,9 @@ public class MergeSort
 	{
 		aux = new int[A.length];
 		
-		mergesort1(A , 0 , A.length - 1);
+		mergesort1(A , 0 , A.length - 1);//自顶向下
+		
+//		mergesort2(A);//自底向上
 	}
 	
 	//自顶向下的归并排序
@@ -32,16 +34,25 @@ public class MergeSort
 	}
 	
 	//自底向上的归并排序
-	private static void mergesort2(int[] A , int lo , int hi)
+	//先归并那些微型数组,再成对归并得到的子数组
+	private static void mergesort2(int[] A)
 	{
+		int N = A.length;
 		
+		for(int sz = 1 ; sz < N ; sz = sz + sz)//sz子数组大小
+		{
+			for(int lo = 0 ; lo < N - sz ; lo += sz + sz)//lo:子数组索引
+			{
+				merge(A , lo , lo + sz - 1 , Math.min(lo + sz + sz - 1, N - 1));
+			}
+		}
 	}
 	
 	//将A[lo,mid]和A[mid+1,hi]归并
 	private static void merge(int[] A , int lo , int mid , int hi)
 	{
-		int i = lo;
-		int j = mid + 1;
+		int i = lo;//左扫描指针
+		int j = mid + 1;//右扫描指针
 		
 		//将A[lo,hi]复制到aux[lo,hi]
 		for(int k = lo ; k <= hi ; ++k)
