@@ -1,13 +1,13 @@
 package com.hypo.dp;
 
 /**
- * 最长公共字串(最长公共子序列的特殊情况)
+ * 最长公共字串(最长公共子序列的特殊情况)	[middle]
  * 动态规划  
  */
 public class LCS_79
 {
 	//代码可优化，可使用滚动数组，减少空间复杂度.
-	private static int longestCommonSubstring(String A, String B)
+	public static int longestCommonSubstring(String A, String B)
 	{
 		if (A == null || B == null)
 			return 0;
