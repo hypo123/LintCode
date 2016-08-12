@@ -1,12 +1,15 @@
 package com.hypo.dp;
 
 /**
- * 最长公共子序列
+ * 最长公共子序列	[middle]
  * 动态规划
+ * 
+ * 
+ * 分析见算法导论P224
  */
 public class LCS_77
 {
-    private static  int longestCommonSubsequence(String A, String B) 
+    public static  int longestCommonSubsequence(String A, String B) 
     {
     	if(A == null || B == null || A.length() == 0 || B.length() == 0) return 0;
     	
@@ -15,8 +18,10 @@ public class LCS_77
     	
     	int[][] f = new int[lenA+1][lenB+1];
     	
-    	int maxlen = -1;
+    	int maxlen = -1;//最长公共字串长度
     	
+    	//注意i,j的下标都是从1开始的
+    	//第一行,第一列都为0
     	for(int i = 1 ; i <= lenA ; i++)
     	{
     		for(int j = 1 ; j <= lenB ; j++)
@@ -39,11 +44,4 @@ public class LCS_77
     	}
     	return maxlen;
     }
-	public static void main(String[] args)
-	{
-		String A = "ABCD";
-		String B = "EACB";
-		
-		System.out.println(LCS_77.longestCommonSubsequence(A, B));
-	}
 }
