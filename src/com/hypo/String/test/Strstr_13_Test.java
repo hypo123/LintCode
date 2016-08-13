@@ -149,6 +149,7 @@ public class Strstr_13_Test
 		org.junit.Assert.assertEquals(expt, index);
 	}
 
+//	=============================私有方法单元测试================================
 	@Test
 	public void testComputePrefix1() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
 	{
