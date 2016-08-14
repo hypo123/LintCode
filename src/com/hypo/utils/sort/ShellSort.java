@@ -18,6 +18,7 @@ public class ShellSort
 		int h = 1;//步长
 		
 		//h = 1, 4, 13, 40, 121, 364, 1093, ...
+		//初始最大步长
 		while(h < N / 3) 
 		{
 			h = 3 * h + 1;
@@ -37,7 +38,6 @@ public class ShellSort
 			
 			h = h / 3;
 		}
-				
 	}
 	
 	private static void exchange(int[] A , int i , int j)
