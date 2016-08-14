@@ -2,7 +2,6 @@ package com.hypo.utils;
 
 /**
  *	比较两个单链表是否节点个数,个节点值都是一样的 
- *
  */
 public class CompareLinkedList
 {
