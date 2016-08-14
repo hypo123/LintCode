@@ -43,7 +43,7 @@ public class BST
     *      4. 与当前节点值相等,查找到返回TRUE
     *      5. 查找完毕未找到;
     */
-	public TreeNode search(int key)
+	public TreeNode get(int key)
 	{
 		TreeNode current = root;
 		
