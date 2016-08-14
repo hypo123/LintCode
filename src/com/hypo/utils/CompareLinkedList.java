@@ -6,7 +6,7 @@ package com.hypo.utils;
  */
 public class CompareLinkedList
 {
-	public boolean compare(ListNode m , ListNode n)
+	public static boolean compare(ListNode m , ListNode n)
 	{
 		if(m == null && n == null) return true;
 		if(m == null && n != null) return false;
