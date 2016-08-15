@@ -1,1 +1,1 @@
-{%img /LintCode/src/com.hypo.img/AVL.jpg %}
+![](https://github.com/hypo123/LintCode/raw/master/src/com.hypo.img/AVL.jpg)
