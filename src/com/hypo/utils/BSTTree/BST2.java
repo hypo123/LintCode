@@ -26,12 +26,12 @@ import com.hypo.utils.TreeNode;
  *	}
  *
  */
-public class BST
+public class BST2
 {
 	//根结点
 	private TreeNode root;
 	
-	public BST()
+	public BST2()
 	{
 		root = null;
 	}
