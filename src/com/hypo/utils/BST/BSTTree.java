@@ -1,10 +1,10 @@
-package com.hypo.utils.BSTTree;
+package com.hypo.utils.BST;
 
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
-public class BST<Key extends Comparable<Key>, Value>
+public class BSTTree<Key extends Comparable<Key>, Value>
 {
 	private Node root; // root of BST
 
@@ -29,7 +29,7 @@ public class BST<Key extends Comparable<Key>, Value>
 	/**
 	 * Initializes an empty symbol table.
 	 */
-	public BST()
+	public BSTTree()
 	{
 	}
 
