@@ -85,22 +85,34 @@ public class AVLTree<Key extends Comparable<Key> , Value>
 	 */
 	private Node balance(Node x)
 	{
+		//以x为根结点的子树中,x的右子树的高度减x的左子树高度比1大
+		//需左旋
 		if(balanceFactor(x) < -1)
 		{
+			//x的右子树,即以x.right为根的子树
+			//平衡因子大于0,需先右旋以x.right为根的子树
 			if(balanceFactor(x.right) > 0)
 			{
+				//先右旋x的右子树,其根结点是x.right
 				x.right = rotateRight(x.right);
 			}
 			
+			//左旋以x为根结点的子树
 			x = rotateLeft(x);
 		}
+		//x的左子树高度减x的右子树的高度比1大
+		//需右旋
 		else if(balanceFactor(x) > 1)
 		{
+			//x的左子树,即以x.left为根的子树
+			//平衡因子小于0,需先左旋以x.left为根的子树
 			if(balanceFactor(x.left) < 0)
 			{
+				//先左旋x的左子树,其根结点是x.left
 				x.left = rotateLeft(x.left);
 			}
 			
+			//右旋以x为根结点的子树
 			x = rotateRight(x);
 		}
 		return x;
@@ -116,16 +128,58 @@ public class AVLTree<Key extends Comparable<Key> , Value>
 	}
 
     /**
+     * 左旋
+     * 以x为根结点的子树左旋
+     * @param x 给定子树
+     * @return the left rotated subtree
+     * 
+     * 	 x                y
+     *  / \     左旋               /   \
+     * A   y   ————>   x     z
+     *    / \         / \   / \
+     *   B	 z       A   B  C  D
+     *      / \
+     *     C   D
+     */  
+    private Node rotateLeft(Node x) 
+    {
+    	//结点左旋
+        Node y = x.right;
+        x.right = y.left;
+        y.left = x;
+        
+        //处理结点数据
+        y.size = x.size;
+        x.size = 1 + size(x.left) + size(x.right);
+        
+        x.height = 1 + Math.max(height(x.left), height(x.right));
+        y.height = 1 + Math.max(height(y.left), height(y.right));
+        
+        return y;
+    }
+	
+    /**
      * 右旋
-     * 旋转给定子树到右边
+     * 右旋x为根的子树
      * @param x 给定子树
      * @return 
+     * 
+     * 		 x                      y
+     *      / \                   /   \
+     *     y   A     右旋                             z     x
+     *    / \		————>       /  \  /  \  
+     *   z   B                 D    C B   A
+     *  / \
+     * D   C  
      */
     private Node rotateRight(Node x) 
     {
+    	//结点右旋
         Node y = x.left;
         x.left = y.right;
         y.right = x;
+        
+        //处理结点数据
         y.size = x.size;
         x.size = 1 + size(x.left) + size(x.right);
         
@@ -135,26 +189,6 @@ public class AVLTree<Key extends Comparable<Key> , Value>
         return y;
     }
 
-    /**
-     * 左旋
-     * 旋转给定子树到左边
-     * @param x 给定子树
-     * @return the left rotated subtree
-     */
-    private Node rotateLeft(Node x) 
-    {
-        Node y = x.right;
-        x.right = y.left;
-        y.left = x;
-        y.size = x.size;
-        x.size = 1 + size(x.left) + size(x.right);
-        
-        x.height = 1 + Math.max(height(x.left), height(x.right));
-        y.height = 1 + Math.max(height(y.left), height(y.right));
-        
-        return y;
-    }
-    
     /***************************************************************************
      *  AVL树查找结点操作.
      ***************************************************************************/ 
@@ -206,7 +240,8 @@ public class AVLTree<Key extends Comparable<Key> , Value>
     public void put(Key key, Value val) 
     {
         if (key == null) throw new NullPointerException("first argument to put() is null");
-        if (val == null) {
+        if (val == null) 
+        {
             delete(key);
             return;
         }
@@ -220,19 +255,28 @@ public class AVLTree<Key extends Comparable<Key> , Value>
     private Node put(Node x, Key key, Value val) 
     {
         if (x == null) return new Node(key, val, 0, 1);
+        
         int cmp = key.compareTo(x.key);
-        if (cmp < 0) {
+        
+        if (cmp < 0) 
+        {
             x.left = put(x.left, key, val);
         }
-        else if (cmp > 0) {
+        else if (cmp > 0)
+        {
             x.right = put(x.right, key, val);
         }
-        else {
+        else 
+        {
             x.val = val;
             return x;
         }
+        
         x.size = 1 + size(x.left) + size(x.right);
+        
         x.height = 1 + Math.max(height(x.left), height(x.right));
+        
+        //调整以x为根的子树
         return balance(x);
     }
 
@@ -259,6 +303,7 @@ public class AVLTree<Key extends Comparable<Key> , Value>
 	private Node delete(Node x, Key key)
 	{
 		int cmp = key.compareTo(x.key);
+		
 		if (cmp < 0)
 		{
 			x.left = delete(x.left, key);
@@ -287,9 +332,14 @@ public class AVLTree<Key extends Comparable<Key> , Value>
 		}
 		x.size = 1 + size(x.left) + size(x.right);
 		x.height = 1 + Math.max(height(x.left), height(x.right));
+		
+		//调整删除了结点的以x为根的子树
 		return balance(x);
 	}
 	
+	/**
+	 *	删除AVL树中有最小键的结点 
+	 */
 	public void deleteMin()
 	{
 		if (isEmpty())	throw new NoSuchElementException("called deleteMin() with empty symbol table");
@@ -299,6 +349,9 @@ public class AVLTree<Key extends Comparable<Key> , Value>
 		assert check();
 	}
 	
+	/**
+	 *	删除以x为根的子树中有最小键的结点 
+	 */
     private Node deleteMin(Node x) 
     {
         if (x.left == null) return x.right;
@@ -308,6 +361,9 @@ public class AVLTree<Key extends Comparable<Key> , Value>
         return balance(x);
     }
     
+	/**
+	 *	删除AVL树中有最大键的结点 
+	 */
     public void deleteMax() 
     {
         if (isEmpty()) throw new NoSuchElementException("called deleteMax() with empty symbol table");
@@ -315,12 +371,16 @@ public class AVLTree<Key extends Comparable<Key> , Value>
         assert check();
     }
     
+	/**
+	 *	删除以x为根的子树中有最大键的结点 
+	 */
     private Node deleteMax(Node x) 
     {
         if (x.right == null) return x.left;
         x.right = deleteMax(x.right);
         x.size = 1 + size(x.left) + size(x.right);
         x.height = 1 + Math.max(height(x.left), height(x.right));
+        
         return balance(x);
     }
     
@@ -329,30 +389,45 @@ public class AVLTree<Key extends Comparable<Key> , Value>
      *  AVL树结点操作.
      ***************************************************************************/   
     
+    /**
+     *	返回AVL树中的最小键 
+     */
     public Key min() 
     {
         if (isEmpty()) throw new NoSuchElementException("called min() with empty symbol table");
         return min(root).key;
     }
     
+    /**
+     *	返回以x为根结点的子树中有最小键的结点 
+     */
     private Node min(Node x) 
     {
         if (x.left == null) return x;
         return min(x.left);
     }
     
+    /**
+     *	返回AVL树中的最大键 
+     */
     public Key max() 
     {
         if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
         return max(root).key;
     }
     
+    /**
+     *	返回以x为根结点的树中有最大键的结点 
+     */
     private Node max(Node x) 
     {
         if (x.right == null) return x;
         return max(x.right);
     }
     
+    /**
+     *	返回不大于键key的最大键
+     */
     public Key floor(Key key) 
     {
         if (key == null) throw new NullPointerException("argument to floor() is null");
@@ -362,6 +437,9 @@ public class AVLTree<Key extends Comparable<Key> , Value>
         else return x.key;
     }
     
+    /**
+     * 返回拥有不大于键key的最大键的结点 
+     */
     private Node floor(Node x, Key key) 
     {
         if (x == null) return null;
@@ -373,6 +451,9 @@ public class AVLTree<Key extends Comparable<Key> , Value>
         else return x;
     }
     
+    /**
+     *	返回不小于键key的最小键
+     */
     public Key ceiling(Key key) 
     {
         if (key == null) throw new NullPointerException("argument to ceiling() is null");
@@ -382,6 +463,9 @@ public class AVLTree<Key extends Comparable<Key> , Value>
         else return x.key;
     }
     
+    /**
+     * 返回拥有不小于键key的最小键的结点 
+     */
     private Node ceiling(Node x, Key key) 
     {
         if (x == null) return null;
@@ -406,6 +490,9 @@ public class AVLTree<Key extends Comparable<Key> , Value>
     	return x.key;
     }
     
+    /**
+     *	返回以x为根结点的子树中拥有第k小的键的结点 
+     */
     private Node select(Node x , int k)
     {
     	if(x == null) return null;
