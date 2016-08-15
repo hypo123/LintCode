@@ -1,4 +1,4 @@
-package com.hypo.utils.BSTTree;
+package com.hypo.utils.BST;
 
 import com.hypo.utils.TreeNode;
 
@@ -26,12 +26,12 @@ import com.hypo.utils.TreeNode;
  *	}
  *
  */
-public class BST2
+public class BSTTree2
 {
 	//根结点
 	private TreeNode root;
 	
-	public BST2()
+	public BSTTree2()
 	{
 		root = null;
 	}
