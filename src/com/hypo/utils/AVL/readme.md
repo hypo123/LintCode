@@ -1,0 +1,1 @@
+{%img /LintCode/src/com.hypo.img/AVL.jpg %}
