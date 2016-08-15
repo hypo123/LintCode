@@ -46,20 +46,13 @@
 
 左旋
 
+![](https://github.com/hypo123/LintCode/raw/master/src/com.hypo.img/LeftRotate.jpg)
 ```java
     /**
      * 左旋
      * 以x为根结点的子树左旋
      * @param x 给定子树
      * @return the left rotated subtree
-     * 
-     * 	 x                y
-     *  / \     左旋               /   \
-     * A   y   ————>   x     z
-     *    / \         / \   / \
-     *   B	 z       A   B  C  D
-     *      / \
-     *     C   D
      */  
     private Node rotateLeft(Node x) 
     {
@@ -80,21 +73,13 @@
 ```
 
 右旋
-
+![](https://github.com/hypo123/LintCode/raw/master/src/com.hypo.img/RightRotate.jpg)
 ```java
     /**
      * 右旋
      * 右旋x为根的子树
      * @param x 给定子树
      * @return 
-     * 
-     * 		 x                      y
-     *      / \                   /   \
-     *     y   A     右旋                             z     x
-     *    / \		————>       /  \  /  \  
-     *   z   B                 D    C B   A
-     *  / \
-     * D   C  
      */
     private Node rotateRight(Node x) 
     {
