@@ -123,7 +123,7 @@ public class LongestPalindromicSubstring_200
     	
     	for(int i = 1 ; i < n - 1; ++i)
     	{
-    		int i_mirror = 2 * C - i;//i关于C对称轴的字符下标
+    		int i_mirror = 2 * C - i;//i关于C对称轴对称的字符下标
     		
     		//以i为对称轴的回文字符串的长度
     		//如果i比R大,则初始P[i]为0;如果i比R小,则初始P[i]的值要看i的位置决定
@@ -143,8 +143,8 @@ public class LongestPalindromicSubstring_200
     		}
     	}
 
-    	int max_len = 0;
-    	int center_index = 0;
+    	int max_len = 0;//最长回文半径
+    	int center_index = 0;//对称轴字符的下标
     	
     	//找到数组P中最大值
     	for(int i = 1 ; i < n - 1; ++i)
@@ -156,6 +156,7 @@ public class LongestPalindromicSubstring_200
     		}
     	}
     	
+    	//字符串s中最长回文字串的起始下标
     	int start = (center_index - 1 - max_len) / 2;
     	
     	
