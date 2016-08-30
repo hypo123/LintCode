@@ -35,8 +35,10 @@ public class MaximumProductSubarray_191
     	
     	for(int i =  1 ; i < n ; ++i)
     	{
+    		//状态转移方程1
     		dpmax[i] = Math.max(nums[i] , Math.max(dpmax[i-1]*nums[i], dpmin[i-1]*nums[i]));
     		
+    		//状态转移方程2
     		dpmin[i] = Math.min(nums[i] , Math.min(dpmax[i-1]*nums[i], dpmin[i-1]*nums[i]));
     	}
     	
