@@ -28,7 +28,7 @@ public class DistinctSubsequences_118
     	int lens = S.length();
     	int lent = T.length();
     	
-    	int[][] f = new int[lens+1][lent+1];//状态数组
+    	int[][] f = new int[lens+1][lent+1];//二维状态数组
     	
     	//对于T串为""时,不管S串是什么都包含空字符串""一次
     	for(int i = 0 ; i <= lens ; ++i)
@@ -69,6 +69,9 @@ public class DistinctSubsequences_118
     	{
     		for(int j = lent-1 ; j >= 0 ; --j)//T
     		{
+    			/*
+    			 *	f[j+1]表示T的下标从0到j(包含j)的子字符串在S的给定范围内出现的次数 
+    			 */
     			f[j+1] += S.charAt(i) == T.charAt(j) ? f[j] : 0;
     		}
     	}
