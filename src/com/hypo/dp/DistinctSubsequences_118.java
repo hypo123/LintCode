@@ -14,7 +14,7 @@ package com.hypo.dp;
 	动态规划
 	设状态为f(i,j)表示T[0,j]在S[0,i]里出现的次数
 	首先,无论S[i]和T[j]是否相等,若不使用S[i],则f(i,j)=f(i-1,j);
-	若S[i]==T[j],则可以使用S[i],此时f(i,j)=f(i-1,j)+f(i-1,j-1);s
+	若S[i]==T[j],则可以使用S[i],此时f(i,j)=f(i-1,j)+f(i-1,j-1);
  *
  */
 public class DistinctSubsequences_118
@@ -30,7 +30,7 @@ public class DistinctSubsequences_118
     	
     	int[][] f = new int[lens+1][lent+1];//状态数组
     	
-    	//对于T串为""时,不管S串是什么都包含""一次
+    	//对于T串为""时,不管S串是什么都包含空字符串""一次
     	for(int i = 0 ; i <= lens ; ++i)
     	{
     		f[i][0] = 1;
@@ -40,13 +40,14 @@ public class DistinctSubsequences_118
     	{
     		for(int j = 1; j <= lent ; ++j)//T
     		{
-    			//状态转移方程
     			if(S.charAt(i-1) == T.charAt(j-1))
     			{
+    				//状态转移方程1
     				f[i][j] = f[i-1][j] + f[i-1][j-1];
     			}
     			else
     			{
+    				//状态转移方程2
     				f[i][j] = f[i-1][j];
     			}
     		}
@@ -56,23 +57,23 @@ public class DistinctSubsequences_118
     }
     
 //  空间优化	使用滚动数组
-//    public int numDistinct2(String S, String T)
-//    {
-//    	int lens = S.length();
-//    	int lent = T.length();
-//    	
-//    	int[] f = new int[lens+1];
-//    	f[0] = 1;
-//    	
-//    	for(int i = 0 ; i < lens ; ++i)
-//    	{
-//    		for(int j = lent-1 ; j >= 0 ; --j)
-//    		{
-//    			f[j+1] += S.charAt(i) == T.charAt(j) ? f[j] : 0;
-//    		}
-//    	}
-//    	
-//    	return f[lens];
-//    }
+    public int numDistinct2(String S, String T)
+    {
+    	int lens = S.length();
+    	int lent = T.length();
+    	
+    	int[] f = new int[lent+1];//一维状态数组
+    	f[0] = 1;
+    	
+    	for(int i = 0 ; i < lens ; ++i)//S
+    	{
+    		for(int j = lent-1 ; j >= 0 ; --j)//T
+    		{
+    			f[j+1] += S.charAt(i) == T.charAt(j) ? f[j] : 0;
+    		}
+    	}
+    	
+    	return f[lent];
+    }
     
 }
