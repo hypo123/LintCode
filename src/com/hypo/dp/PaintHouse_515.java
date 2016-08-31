@@ -44,18 +44,21 @@ public class PaintHouse_515
     	{
     		for(int j = 0 ; j < col ; ++j)
     		{
-    			if(j == 0)//第一列
-    			{
-    				f[i][j] = Math.min(f[i-1][j+1], f[i-1][j+2]) + costs[i-1][j]; 
-    			}
-    			else if(j == 1)//第二列
-    			{
-    				f[i][j] = Math.min(f[i-1][j-1], f[i-1][j+1]) + costs[i-1][j]; 
-    			}    			
-    			else if(j == 2)//第三列
-    			{
-    				f[i][j] = Math.min(f[i-1][j-2], f[i-1][j-1]) + costs[i-1][j]; 
-    			}
+//    			if(j == 0)//第一列
+//    			{
+//    				f[i][j] = Math.min(f[i-1][j+1], f[i-1][j+2]) + costs[i-1][j]; 
+//    			}
+//    			else if(j == 1)//第二列
+//    			{
+//    				f[i][j] = Math.min(f[i-1][j-1], f[i-1][j+1]) + costs[i-1][j]; 
+//    			}    			
+//    			else if(j == 2)//第三列
+//    			{
+//    				f[i][j] = Math.min(f[i-1][j-2], f[i-1][j-1]) + costs[i-1][j]; 
+//    			}
+    			
+    			//更简洁的写法
+    			f[i][j] = Math.min(f[i-1][(j+1)%3], f[i-1][(j+2)%3]) + costs[i-1][j];
     		}
     	}
     	
