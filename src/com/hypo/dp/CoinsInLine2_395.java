@@ -23,7 +23,7 @@ public class CoinsInLine2_395
     	
     	if(len < 2) return true;
     	
-    	//f[i]表示到第i个硬币时使得先手数量最大的状态
+    	//f[i]表示从i到end使得先手数量最大的值
     	int[] f = new int[len+1];
     	f[len] = 0;
     	
