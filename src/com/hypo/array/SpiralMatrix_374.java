@@ -31,10 +31,10 @@ public class SpiralMatrix_374
     	
     	if(matrix == null || matrix.length < 1) return result;
     	
-    	int rowBegin = 0;
-    	int rowEnd = matrix.length - 1;
-    	int colBegin = 0;
-    	int colEnd = matrix[0].length - 1;
+    	int rowBegin = 0;//上面行边界
+    	int rowEnd = matrix.length - 1;//下面行边界
+    	int colBegin = 0;//左边列边界
+    	int colEnd = matrix[0].length - 1;//右边列边界
     	
 //    	先向右遍历，一行遍历完，rowBegin加1 Step1;
 //    	再向下遍历，一列遍历完，colEnd减1   Step2;
