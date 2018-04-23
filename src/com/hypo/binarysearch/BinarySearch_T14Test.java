@@ -1,15 +1,8 @@
 package com.hypo.binarysearch;
 
-import static org.junit.Assert.*;
-
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.hypo.bfs.WordLadder_T120;
 
 public class BinarySearch_T14Test
 {
